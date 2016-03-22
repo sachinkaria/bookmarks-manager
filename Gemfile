@@ -8,4 +8,6 @@ gem "capybara"
 gem "rspec"
 gem "sinatra"
 gem "rspec-sinatra"
+gem "dm-transactions"
+gem "database_cleaner"
 
