@@ -1,3 +1,5 @@
+
+
 feature 'view links' do
   scenario 'user can see list of links' do
       Link.create(
@@ -7,7 +9,7 @@ feature 'view links' do
       visit '/'
       expect(page.status_code).to eq 200
 
-      within '#links' do
+      within 'ul#links' do
         expect(page).to have_content('Google')
       end
   end
