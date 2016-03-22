@@ -6,4 +6,6 @@ gem "dm-postgres-adapter"
 gem "dm-migrations"
 gem "capybara"
 gem "rspec"
+gem "sinatra"
+gem "rspec-sinatra"
 
