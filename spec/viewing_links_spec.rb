@@ -4,7 +4,7 @@ feature 'view links' do
       :title => 'Google',
       :url => 'http://google.com'
       )
-      visit '/links'
+      visit '/'
       expect(page.status_code).to eq 200
 
       within 'ul#links' do
