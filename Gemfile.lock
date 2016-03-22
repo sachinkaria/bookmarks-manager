@@ -65,6 +65,7 @@ PLATFORMS
 
 DEPENDENCIES
   data_mapper
+  dm-migrations
   dm-postgres-adapter
 
 BUNDLED WITH
