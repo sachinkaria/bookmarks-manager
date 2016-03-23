@@ -1,4 +1,5 @@
 feature 'view links' do
+
   scenario 'user can see list of links' do
       Link.create(
       :title => 'Google',

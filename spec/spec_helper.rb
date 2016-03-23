@@ -2,11 +2,14 @@
 ENV["RACK_ENV"] = "test"
 require File.join(File.dirname(__FILE__), '..', 'bookmarks.rb')
 
+
+require 'database_cleaner'
 require 'capybara'
 require 'capybara/rspec'
 require './bookmarks'
 require 'rspec'
 require './models/link'
+
 # require 'selenium-webdriver'
 
 
@@ -43,7 +46,19 @@ RSpec.configure do |config|
     # ...rather than:
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:truncation)
   end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+end
 
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.
