@@ -1,3 +1,5 @@
+require 'pry'
+
 ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra/base'
@@ -16,18 +18,25 @@ class Bookmark < Sinatra::Base
 
   post '/links' do
     link = Link.create(title: params[:title], url: params[:url])
-    tag = Tag.create(name: params[:tag])
-    LinkTag.create(:link => link, :tag => tag)
-    redirect '/links'
-  end
+    
+    
+    params[:tag].split.each do |tag_name|
+    link.tag << Tag.create(name: tag_name)
+    end
 
-  get '/links/tag' do
-    @tag=Tag.all
-    erb (:'links/tag')
+    
+    link.save
+    redirect '/links'
   end
 
   get '/links/new' do
     erb(:'links/new')
+  end
+
+  get '/links/:name' do
+    tag = Tag.all(name: params[:name])
+    @links = tag ? tag.link : []
+    erb(:'links/index')
   end
 
 

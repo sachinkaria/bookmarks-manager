@@ -1,0 +1,11 @@
+<h1> Filtered by <%=@filter%> </h1>
+
+<ul id= 'links'>
+  <% @tag.each do |tag| %>
+    <% if tag.name == @filter %>
+      <li>
+        Link Name: <%= tag.link.map(&:title) %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
