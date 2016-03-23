@@ -25,11 +25,19 @@ post '/links/newlink' do
   :title => params[:title],
   :url => params[:url]
   )
-  tag = Tag.create(name: params[:tags])
-  link.tags << tag
+  params[:tags].split(",").each do |tag|
+    tag = Tag.create(name: tag)
+    link.tags << tag
+  end
   link.save
   redirect('/')
 end
+
+get '/tags/:name' do
+  tag = Tag.first(name: params[:name])
+  @links = tag ? tag.links : []
+  erb :'links/index'
+  end
 
 run! if app_file ==$0
 end

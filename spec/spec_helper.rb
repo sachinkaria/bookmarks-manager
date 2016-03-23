@@ -9,6 +9,7 @@ require 'capybara/rspec'
 require './bookmarks'
 require 'rspec'
 require './models/link'
+require 'web_helpers'
 
 # require 'selenium-webdriver'
 
