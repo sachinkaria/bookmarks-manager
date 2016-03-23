@@ -9,6 +9,7 @@ gem 'database_cleaner'
 gem 'selenium-webdriver'
 gem 'pry'
 gem 'pg'
+gem 'rake'
 
 group :test do
   gem 'rspec'
