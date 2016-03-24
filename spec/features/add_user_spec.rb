@@ -1,8 +1,11 @@
+require 'pry'
+
 feature 'add user' do
 
   scenario 'and user count increases by 1' do
     user = User.create(name: "Sachin", password: "password", email: "sachin.karia01@gmail.com")
-    expect(user.count).to eq 1
+    binding.pry
+    expect(user.name.count).to eq 1
   end
 
   scenario 'and page displays welcome message to user' do
