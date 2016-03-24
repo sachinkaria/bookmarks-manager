@@ -29,3 +29,11 @@ def add_multi_tag_link
   fill_in(:tag, with: "news digital science")
   click_button("Submit")
 end
+
+def new_user
+  visit '/'
+  fill_in(:name, with: "Sachin")
+  fill_in(:password, with: "Password")
+  fill_in(:email, with: "sachin.karia01@gmail.com")
+  click_button("Sign Up")
+end
