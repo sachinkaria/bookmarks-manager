@@ -21,7 +21,7 @@ class Bookmark < Sinatra::Base
     
     
     params[:tag].split.each do |tag_name|
-    link.tag << Tag.create(name: tag_name)
+    link.tag << Tag.first_or_create(name: tag_name)
     end
 
     
